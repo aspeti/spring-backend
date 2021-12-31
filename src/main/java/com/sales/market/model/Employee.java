@@ -12,6 +12,7 @@ public class Employee extends ModelBase {
     private String lastName;
     private Byte[] image;
 
+    //indica la llave foranea esta en contrato, por defecto en fields es EAGER, colecciones es LAZY y todo valor bolleano es true
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     //la relacion mapeada por employee y propagables
     private List<Contract> contracts;

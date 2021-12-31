@@ -1,19 +1,28 @@
 package com.sales.market.model;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.util.Date;
 
 @Entity
 public class Contract extends ModelBase {
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     private Employee employee;
-
     @OneToOne(optional = false) //bajo un contrato hay un empleado y una posicion
     private Position position;
     private Date initDate;
     private Date endDate;
+    private boolean isActive;
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 
     public Employee getEmployee() {
         return employee;
